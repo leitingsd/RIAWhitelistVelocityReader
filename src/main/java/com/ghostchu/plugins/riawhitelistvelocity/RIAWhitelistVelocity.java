@@ -89,10 +89,9 @@ public class RIAWhitelistVelocity {
     private void setupDatabase() {
         try {
             this.databaseManager = new DatabaseManager(this);
-            System.exit(-1);
         }catch (Exception e){
             e.printStackTrace();
-
+            System.exit(-1);
         }
     }
 
