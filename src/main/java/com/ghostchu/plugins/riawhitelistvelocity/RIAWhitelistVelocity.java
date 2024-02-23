@@ -78,6 +78,7 @@ public class RIAWhitelistVelocity {
             if (!query.isAllowed()) {
                 event.setResult(PreLoginEvent.PreLoginComponentResult.denied(text("general.reject-join-incorrect-cases", username, query.getCorrectWhitelistedName())));
             }
+            logger.info("Player {} passed whitelist check", event.getUsername());
         } catch (Exception e) {
             e.printStackTrace();
             event.setResult(PreLoginEvent.PreLoginComponentResult.denied(text("general.internal-error", e.getMessage())));
@@ -86,7 +87,13 @@ public class RIAWhitelistVelocity {
 
 
     private void setupDatabase() {
-        this.databaseManager = new DatabaseManager(this);
+        try {
+            this.databaseManager = new DatabaseManager(this);
+            System.exit(-1);
+        }catch (Exception e){
+            e.printStackTrace();
+
+        }
     }
 
     public void saveConfig() {
