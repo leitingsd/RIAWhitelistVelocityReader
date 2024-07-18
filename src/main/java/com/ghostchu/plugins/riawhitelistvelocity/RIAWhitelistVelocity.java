@@ -66,7 +66,7 @@ public class RIAWhitelistVelocity {
     public void onPlayerConnect(PreLoginEvent event) {
         String username = event.getUsername();
         if (username == null) {
-            event.setResult(PreLoginEvent.PreLoginComponentResult.denied(Component.text("[RIAWhitelistVelocity] Username in connection cannot be null")));
+            event.setResult(PreLoginEvent.PreLoginComponentResult.denied(Component.text("[WhitelistVelocity] Username in connection cannot be null")));
             return;
         }
         try {
